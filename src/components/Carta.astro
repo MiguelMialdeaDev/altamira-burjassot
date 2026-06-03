@@ -1,0 +1,133 @@
+---
+import { CATEGORIES, itemsByCategory, featuredItems } from '../data/menu';
+import { RESTAURANT } from '../data/config';
+
+const featured = featuredItems();
+---
+
+<section id="carta" class="py-24 bg-cream">
+  <div class="container mx-auto px-6">
+    <!-- Header sección -->
+    <div class="text-center mb-16">
+      <p class="text-tropical-mango font-medium tracking-widest uppercase text-sm mb-3">Nuestra carta</p>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-charcoal mb-4">
+        Sabores de Venezuela
+      </h2>
+      <p class="text-charcoal/70 max-w-2xl mx-auto">
+        Recetas tradicionales venezolanas hechas con producto fresco y mucho cariño.
+        Maíz tierno para nuestras cachapas, queso de mano auténtico, pabellón como en casa.
+      </p>
+    </div>
+
+    <!-- Destacados -->
+    {featured.length > 0 && (
+      <div class="mb-20">
+        <div class="flex items-center justify-center gap-3 mb-8">
+          <div class="h-px w-12 bg-tropical-mango/40"></div>
+          <h3 class="font-display text-2xl font-bold text-tropical-tierra">
+            Lo que no te puedes perder
+          </h3>
+          <div class="h-px w-12 bg-tropical-mango/40"></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {featured.map(item => (
+            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-tropical-mango/10 relative">
+              {item.badge && (
+                <div class="absolute -top-3 left-6 bg-tropical-mango text-charcoal text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                  {item.badge}
+                </div>
+              )}
+              <div class="flex items-start justify-between mb-2 mt-2">
+                <h4 class="font-display text-xl font-bold text-charcoal">{item.name}</h4>
+                <span class="font-bold text-tropical-mango text-xl whitespace-nowrap ml-2">
+                  {item.price.toFixed(2)}€
+                </span>
+              </div>
+              <p class="text-charcoal/70 text-sm mb-4">{item.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {item.vegetarian && (
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">🌱 Vegetariano</span>
+                )}
+                {item.glutenFree && (
+                  <span class="text-xs bg-tropical-maiz/30 text-tropical-tierra px-2 py-1 rounded-full">Sin gluten</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Categorías completas -->
+    <div class="max-w-5xl mx-auto">
+      {CATEGORIES.map(cat => {
+        const items = itemsByCategory(cat.id);
+        if (items.length === 0) return null;
+
+        return (
+          <div class="mb-12">
+            <div class="border-b-2 border-tropical-mango/30 pb-3 mb-6">
+              <h3 class="font-display text-2xl font-bold text-charcoal">
+                {cat.label}
+              </h3>
+              {cat.description && (
+                <p class="text-charcoal/60 text-sm mt-1 italic">{cat.description}</p>
+              )}
+            </div>
+            <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+              {items.map(item => (
+                <div class="flex items-start justify-between gap-4 group">
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1 flex-wrap">
+                      <h4 class="font-bold text-charcoal group-hover:text-tropical-mango transition-colors">
+                        {item.name}
+                      </h4>
+                      {item.vegetarian && <span class="text-xs">🌱</span>}
+                      {item.glutenFree && <span class="text-xs text-tropical-tierra font-bold">SG</span>}
+                    </div>
+                    <p class="text-charcoal/60 text-sm leading-snug">{item.description}</p>
+                  </div>
+                  <div class="font-display font-bold text-tropical-mango text-lg whitespace-nowrap">
+                    {item.price.toFixed(2)}€
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- CTA delivery -->
+    <div class="mt-20 text-center bg-tropical-jungla/5 rounded-3xl py-12 px-6">
+      <p class="text-charcoal/80 mb-2 font-medium">¿Prefieres comer en casa?</p>
+      <p class="text-charcoal/60 text-sm mb-6">Pídelo a domicilio</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href={RESTAURANT.links.justeat}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 shadow-lg"
+        >
+          Pedir en Just Eat →
+        </a>
+        <a
+          href={RESTAURANT.links.ubereats}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 bg-black hover:bg-gray-800 text-white font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 shadow-lg"
+        >
+          Pedir en Uber Eats →
+        </a>
+      </div>
+    </div>
+
+    <!-- Disclaimer alérgenos -->
+    <div class="mt-12 text-center max-w-2xl mx-auto">
+      <p class="text-xs text-charcoal/50">
+        Información sobre alérgenos disponible bajo solicitud.
+        Si tienes alergias o intolerancias, avísanos al hacer la reserva.
+      </p>
+    </div>
+  </div>
+</section>

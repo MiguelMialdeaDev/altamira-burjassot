@@ -1,0 +1,65 @@
+---
+import { RESTAURANT, whatsappLink } from '../data/config';
+---
+
+<section id="reservar" class="py-24 bg-gradient-to-br from-tropical-mango via-tropical-tierra to-tropical-jungla relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10"
+       style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;">
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-cream/80 font-medium tracking-widest uppercase text-sm mb-3">Reserva tu mesa</p>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-cream mb-6">
+        Ven a probar Venezuela
+      </h2>
+      <p class="text-cream/90 text-lg mb-10 max-w-2xl mx-auto">
+        Somos un sitio pequeño y los fines de semana se llena. Reservar nos ayuda a cuidarte mejor.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <a
+          href={whatsappLink()}
+          target="_blank"
+          rel="noopener"
+          class="group bg-white hover:bg-cream text-charcoal rounded-2xl p-8 shadow-2xl hover:scale-105 transition-all duration-300"
+        >
+          <div class="flex justify-center mb-4">
+            <div class="bg-green-500 group-hover:bg-green-600 text-white p-4 rounded-2xl transition-colors">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24z"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-2">WhatsApp</h3>
+          <p class="text-charcoal/70 text-sm">
+            Respondemos en minutos.<br />
+            <span class="font-bold text-tropical-mango">El más rápido.</span>
+          </p>
+        </a>
+
+        <a
+          href={`tel:${RESTAURANT.phone}`}
+          class="group bg-white hover:bg-cream text-charcoal rounded-2xl p-8 shadow-2xl hover:scale-105 transition-all duration-300"
+        >
+          <div class="flex justify-center mb-4">
+            <div class="bg-tropical-tierra group-hover:bg-tropical-mango text-white p-4 rounded-2xl transition-colors">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-2">Llamar</h3>
+          <p class="text-charcoal/70 text-sm">
+            {RESTAURANT.phoneDisplay}<br />
+            <span class="font-bold text-tropical-mango">Si prefieres voz.</span>
+          </p>
+        </a>
+      </div>
+
+      <p class="text-cream/70 text-sm mt-10">
+        💛 Para grupos de más de 6 personas, recomendamos avisar con un día de antelación.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+import { REVIEWS } from '../data/reviews';
+import { RESTAURANT } from '../data/config';
+---
+
+<section id="reseñas" class="py-24 bg-gradient-to-br from-tropical-tierra via-charcoal to-tropical-jungla relative overflow-hidden">
+  <!-- Decorative quote marks background -->
+  <div class="absolute top-10 left-10 text-tropical-mango/10 text-[20rem] font-display leading-none select-none">"</div>
+  <div class="absolute bottom-10 right-10 text-tropical-mango/10 text-[20rem] font-display leading-none select-none rotate-180">"</div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-tropical-mango font-medium tracking-widest uppercase text-sm mb-3">Lo que dicen los clientes</p>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-cream mb-4">
+        Reseñas reales
+      </h2>
+
+      <!-- Stats prominent -->
+      <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mt-4">
+        <div class="flex">
+          {Array.from({ length: 5 }).map(() => (
+            <svg class="w-6 h-6 text-tropical-mango" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          ))}
+        </div>
+        <span class="text-cream font-black text-2xl">{RESTAURANT.rating.value}</span>
+        <span class="text-cream/80">/ 5</span>
+        <span class="h-6 w-px bg-white/30 mx-2"></span>
+        <span class="text-cream/90 text-sm">
+          <strong>{RESTAURANT.rating.count}+</strong> reseñas
+        </span>
+      </div>
+    </div>
+
+    <!-- Grid reseñas -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      {REVIEWS.map((review, idx) => (
+        <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:scale-[1.02] transition-all duration-300">
+          <div class="flex mb-3">
+            {Array.from({ length: review.rating }).map(() => (
+              <svg class="w-4 h-4 text-tropical-mango" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+
+          <p class="text-charcoal mb-4 leading-relaxed italic">
+            "{review.text}"
+          </p>
+
+          {review.highlight && (
+            <div class="inline-block bg-tropical-mango/10 text-tropical-tierra text-xs font-bold px-3 py-1 rounded-full mb-4">
+              «{review.highlight}»
+            </div>
+          )}
+
+          <div class="flex items-center justify-between pt-4 border-t border-charcoal/10">
+            <div>
+              <div class="font-bold text-charcoal text-sm">{review.author}</div>
+              <div class="text-charcoal/50 text-xs">{review.date}</div>
+            </div>
+            <div class="text-xs font-medium uppercase tracking-wide">
+              {review.source === 'google' && <span class="text-blue-600">Google</span>}
+              {review.source === 'tripadvisor' && <span class="text-green-600">TripAdvisor</span>}
+              {review.source === 'justeat' && <span class="text-orange-500">Just Eat</span>}
+              {review.source === 'ubereats' && <span class="text-black">Uber Eats</span>}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href={RESTAURANT.links.tripadvisor}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-cream hover:text-tropical-mango transition-colors group"
+      >
+        Ver más reseñas en TripAdvisor
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
