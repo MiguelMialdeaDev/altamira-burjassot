@@ -1,33 +1,36 @@
 /**
  * Configuración del restaurante Altamira GCP.
- * COCINA VENEZOLANA en Burjassot. Edita aquí todos los datos.
+ * COCINA VENEZOLANA en Burjassot.
+ * Datos verificados desde la web oficial https://altamiragcp.eatbu.com
  */
 
 export const RESTAURANT = {
   // Identidad
   name: 'Altamira GCP',
   shortName: 'Altamira',
-  tagline: 'Sabores de Caracas en el corazón de Burjassot',
-  description: 'Auténtica cocina venezolana en Burjassot. Cachapas, arepas, tequeños y los platos de casa que Venezuela trajo a Valencia. Sin atajos, con cariño.',
+  tagline: 'Sabores de Caracas, hechos a mano en Burjassot',
+  description: 'Restaurante venezolano en Burjassot. De Caracas a Buenos Aires a Valencia: tres ciudades, una misma cocina. Cachapas, arepas, pabellón criollo, tequeños y todo el sabor de casa.',
 
-  // Contacto
+  // Contacto VERIFICADO
   phone: '+34 628 15 05 50',
   phoneDisplay: '628 15 05 50',
-  whatsapp: '34628150550', // Sin + ni espacios para wa.me
+  whatsapp: '34628150550',
   email: '', // [PEDIR A CLIENTE]
 
-  // Ubicación
-  address: 'Carrer del Pintor Velázquez, 42',
+  // Ubicación VERIFICADA desde web oficial
+  address: 'C. Rosa de Luxemburgo',
+  addressNumber: '', // sin número específico en web oficial
   postalCode: '46100',
   city: 'Burjassot',
   region: 'Valencia',
   country: 'España',
   coordinates: {
-    lat: 39.5076, // [VERIFICAR EN GOOGLE MAPS]
-    lng: -0.4106,
+    lat: 39.5061747,
+    lng: -0.4207724,
   },
 
-  // Horarios VERIFICADOS (de búsqueda real)
+  // Horarios — la web oficial indica 12 días/2 semanas abiertos (semanal completa) pero formato exacto pending
+  // Datos cross-referenciados desde Uber Eats / TripAdvisor
   hours: {
     lunes: { lunch: { open: '10:00', close: '16:00' }, dinner: { open: '19:30', close: '23:00' } },
     martes: { lunch: { open: '10:00', close: '16:00' }, dinner: { open: '19:30', close: '23:00' } },
@@ -38,16 +41,19 @@ export const RESTAURANT = {
     domingo: { lunch: { open: '09:00', close: '16:00' }, dinner: { open: '19:00', close: '23:30' } },
   },
 
-  // Redes y delivery (verificados)
+  // Pago VERIFICADO
+  paymentMethods: ['Efectivo', 'Tarjeta contactless'],
+
+  // Redes y delivery
   links: {
-    eatbu: 'https://altamira.eatbu.com',
+    eatbu: 'https://altamiragcp.eatbu.com',
     tripadvisor: 'https://www.tripadvisor.es/Restaurant_Review-g1063698-d34104186-Reviews-Altamira_GCP-Burjassot_Province_of_Valencia_Valencian_Community.html',
     justeat: 'https://www.just-eat.es/restaurants-altamira-gcp-burjassot/menu',
     ubereats: 'https://www.ubereats.com/es-en/store/altamira-gcp/dC-lG6FyQuCPbogK25hVFg',
     instagram: '', // [PEDIR A CLIENTE]
     facebook: '', // [PEDIR A CLIENTE]
-    googleMaps: 'https://maps.google.com/?q=Carrer+del+Pintor+Velázquez+42+Burjassot',
-    googleBusiness: '', // [VERIFICAR / OPTIMIZAR]
+    googleMaps: 'https://maps.google.com/?q=Rosa+de+Luxemburgo+46100+Burjassot',
+    googleBusiness: '',
   },
 
   // SEO
@@ -69,6 +75,7 @@ export const RESTAURANT = {
 
 export const SECTIONS = [
   { id: 'inicio', label: 'Inicio' },
+  { id: 'historia', label: 'Historia' },
   { id: 'carta', label: 'Carta' },
   { id: 'reseñas', label: 'Reseñas' },
   { id: 'ubicacion', label: 'Encuéntranos' },

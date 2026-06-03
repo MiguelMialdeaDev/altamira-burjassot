@@ -3,22 +3,23 @@ import { RESTAURANT, whatsappLink } from '../data/config';
 ---
 
 <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-tropical-jungla via-tropical-tierra to-charcoal">
-  <!-- Background pattern dot tropical -->
-  <div class="absolute inset-0 opacity-[0.03]"
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-[0.04]"
        style="background-image: radial-gradient(circle, #F4A261 1px, transparent 1px); background-size: 30px 30px;">
   </div>
 
-  <!-- Foto plato (cachapa hero) -->
-  <div class="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-30 md:opacity-90">
-    <div class="w-full h-full bg-gradient-to-l from-charcoal/20 via-charcoal/70 md:via-transparent to-charcoal md:to-transparent z-10 absolute"></div>
-    <!-- Cuando tengas foto: <img src="/images/cachapa-hero.jpg" /> -->
-    <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=80')] bg-cover bg-center"></div>
+  <!-- Imagen fondo difuminada (NO carta, sino ambiente del local) -->
+  <div class="absolute inset-0 opacity-25">
+    <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80')] bg-cover bg-center"></div>
   </div>
 
-  <div class="relative z-20 container mx-auto px-6 py-20 md:py-32">
-    <div class="max-w-2xl">
-      <!-- Badge ubicación + bandera -->
-      <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full pl-2 pr-4 py-1.5 mb-6 animate-fade-up">
+  <!-- Overlay degradado para legibilidad -->
+  <div class="absolute inset-0 bg-gradient-to-br from-charcoal/80 via-tropical-jungla/70 to-charcoal/90"></div>
+
+  <div class="relative z-20 container mx-auto px-6 py-20 md:py-32 text-center">
+    <div class="max-w-3xl mx-auto">
+      <!-- Badge bandera + ubicación -->
+      <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full pl-2 pr-4 py-1.5 mb-8 animate-fade-up">
         <div class="flex h-5 rounded-full overflow-hidden shadow-md">
           <div class="w-2 bg-venezuela-yellow"></div>
           <div class="w-2 bg-venezuela-blue"></div>
@@ -28,66 +29,68 @@ import { RESTAURANT, whatsappLink } from '../data/config';
       </div>
 
       <!-- Título -->
-      <h1 class="font-display text-5xl md:text-7xl font-black text-cream leading-[1.05] mb-4 animate-fade-up" style="animation-delay: 0.1s">
-        {RESTAURANT.name}
+      <h1 class="font-display text-6xl md:text-8xl font-black text-cream leading-[1.05] mb-6 animate-fade-up" style="animation-delay: 0.1s">
+        Altamira
       </h1>
 
-      <p class="text-tropical-mango text-xl md:text-2xl font-light italic mb-8 animate-fade-up" style="animation-delay: 0.2s">
+      <p class="text-tropical-mango text-xl md:text-2xl font-light italic mb-4 animate-fade-up" style="animation-delay: 0.2s">
         {RESTAURANT.tagline}
       </p>
 
+      <p class="text-cream/80 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed animate-fade-up" style="animation-delay: 0.3s">
+        Recetas familiares traídas de Caracas. Hechas a mano, cada día, con el cariño de casa.
+      </p>
+
       <!-- Stats sociales -->
-      <div class="flex flex-wrap items-center gap-4 mb-10 animate-fade-up" style="animation-delay: 0.3s">
-        <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-12 animate-fade-up" style="animation-delay: 0.4s">
+        <div class="flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
           <div class="flex">
             {Array.from({ length: 5 }).map(() => (
-              <svg class="w-5 h-5 text-tropical-mango" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-4 h-4 text-tropical-mango" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
               </svg>
             ))}
           </div>
-          <span class="text-white font-bold text-lg">{RESTAURANT.rating.value}</span>
-          <span class="text-white/70 text-sm">· {RESTAURANT.rating.count}+ reseñas</span>
-        </div>
-        <div class="h-6 w-px bg-white/30"></div>
-        <div class="text-white/90 text-sm">
-          <span class="font-bold">{RESTAURANT.priceRange}</span> · Cocina casera venezolana
+          <span class="text-white font-bold text-sm">{RESTAURANT.rating.value}</span>
+          <span class="text-white/70 text-xs">· {RESTAURANT.rating.count}+ reseñas</span>
         </div>
       </div>
 
       <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 animate-fade-up" style="animation-delay: 0.4s">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style="animation-delay: 0.5s">
+        <a
+          href="#historia"
+          class="inline-flex items-center justify-center gap-2 bg-tropical-mango hover:bg-tropical-mango/90 text-charcoal font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-tropical-mango/50 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          Conócenos
+        </a>
         <a
           href={whatsappLink()}
           target="_blank"
           rel="noopener"
-          class="inline-flex items-center justify-center gap-2 bg-tropical-mango hover:bg-tropical-mango/90 text-charcoal font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-tropical-mango/50 transition-all duration-300 hover:-translate-y-0.5"
+          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium px-8 py-4 rounded-full transition-all duration-300"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24z"/>
           </svg>
           Reservar mesa
         </a>
-        <a
-          href="#carta"
-          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium px-8 py-4 rounded-full transition-all duration-300"
-        >
-          Ver la carta
-        </a>
       </div>
 
-      <!-- Pequeño hint dirección -->
-      <p class="text-white/60 text-sm mt-8 animate-fade-up" style="animation-delay: 0.5s">
-        📍 {RESTAURANT.address} · {RESTAURANT.postalCode} {RESTAURANT.city}
+      <!-- Address sutil -->
+      <p class="text-white/50 text-xs mt-12 animate-fade-up" style="animation-delay: 0.6s">
+        📍 {RESTAURANT.address} · {RESTAURANT.city}
       </p>
     </div>
   </div>
 
   <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" class="opacity-60">
-      <path d="M7 13l5 5 5-5"/>
-      <path d="M7 6l5 5 5-5"/>
-    </svg>
+    <a href="#historia" aria-label="Scroll down">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" class="opacity-60 hover:opacity-100 transition-opacity">
+        <path d="M7 13l5 5 5-5"/>
+        <path d="M7 6l5 5 5-5"/>
+      </svg>
+    </a>
   </div>
 </section>
