@@ -1,7 +1,6 @@
 /**
  * Carta venezolana de Altamira GCP - Burjassot
  * Precios VERIFICADOS de plataformas delivery (Just Eat / Uber Eats).
- * Cliente confirma carta completa y prices actualizados.
  */
 
 export interface MenuItem {
@@ -15,20 +14,19 @@ export interface MenuItem {
   vegetarian?: boolean;
   glutenFree?: boolean;
   spicy?: boolean;
-  badge?: string; // ej: "El más pedido", "Recomendación de la casa"
+  badge?: string;
 }
 
 export const MENU: MenuItem[] = [
-  // ====== CACHAPAS (estrella de la casa) ======
+  // ====== CACHAPAS ======
   {
     name: 'Cachapa Altamira',
-    description: 'Nuestra cachapa de la casa. Maíz tierno + queso de mano + nata + el toque secreto de Altamira.',
+    description: 'Nuestra cachapa de la casa. Maíz tierno, queso de mano y nata con el toque secreto de Altamira.',
     price: 15.60,
     category: 'cachapas',
     featured: true,
     badge: 'La de la casa',
     allergens: ['lácteos', 'gluten'],
-    glutenFree: false,
   },
   {
     name: 'Cachapa Bolívar',
@@ -59,7 +57,7 @@ export const MENU: MenuItem[] = [
   // ====== AREPAS ======
   {
     name: 'Arepa Reina Pepiada',
-    description: 'La arepa más icónica de Venezuela. Pollo + aguacate + mayonesa. Cremosa.',
+    description: 'La arepa más icónica de Venezuela. Pollo, aguacate y mayonesa. Cremosa.',
     price: 8.50,
     category: 'arepas',
     featured: true,
@@ -67,14 +65,14 @@ export const MENU: MenuItem[] = [
   },
   {
     name: 'Arepa Pelúa',
-    description: 'Carne mechada + queso amarillo fundido. Tradición caraqueña.',
+    description: 'Carne mechada y queso amarillo fundido. Tradición caraqueña.',
     price: 8.50,
     category: 'arepas',
     allergens: ['lácteos'],
   },
   {
     name: 'Arepa Dominó',
-    description: 'Caraotas negras + queso blanco rallado. Blanco y negro como las fichas.',
+    description: 'Caraotas negras y queso blanco rallado. Blanco y negro como las fichas.',
     price: 7.50,
     category: 'arepas',
     vegetarian: true,
@@ -88,7 +86,7 @@ export const MENU: MenuItem[] = [
     allergens: ['lácteos'],
   },
 
-  // ====== PABELLÓN Y PLATOS FUERTES ======
+  // ====== PABELLÓN ======
   {
     name: 'Pabellón Criollo',
     description: 'El plato nacional de Venezuela. Carne mechada, caraotas negras, arroz blanco y plátano frito.',
@@ -168,7 +166,7 @@ export const MENU: MenuItem[] = [
     allergens: ['lácteos', 'huevo', 'gluten'],
   },
 
-  // ====== BEBIDAS TÍPICAS ======
+  // ====== BEBIDAS ======
   {
     name: 'Papelón con Limón',
     description: 'Refresco venezolano de panela y limón. Natural, dulce, refrescante.',
@@ -188,17 +186,14 @@ export const MENU: MenuItem[] = [
 ];
 
 export const CATEGORIES = [
-  { id: 'cachapas', label: '🌽 Cachapas', priority: 1, description: 'Pancakes de maíz tierno con sus rellenos' },
-  { id: 'arepas', label: '🫓 Arepas', priority: 2, description: 'La estrella del desayuno venezolano' },
-  { id: 'pabellon', label: '🍛 Pabellón', priority: 3, description: 'El plato nacional' },
-  { id: 'tequeños', label: '🧀 Tequeños', priority: 4, description: 'El aperitivo de las fiestas' },
+  { id: 'cachapas', label: 'Cachapas', priority: 1, description: 'Pancakes de maíz tierno con sus rellenos' },
+  { id: 'arepas', label: 'Arepas', priority: 2, description: 'La estrella del desayuno venezolano' },
+  { id: 'pabellon', label: 'Pabellón', priority: 3, description: 'El plato nacional' },
+  { id: 'tequeños', label: 'Tequeños', priority: 4, description: 'El aperitivo de las fiestas' },
   { id: 'entrantes', label: 'Entrantes', priority: 5 },
   { id: 'postres', label: 'Postres', priority: 6 },
   { id: 'bebidas', label: 'Bebidas típicas', priority: 7 },
 ];
 
-// Helper: filtrar por categoría
 export const itemsByCategory = (cat: string) => MENU.filter(item => item.category === cat);
-
-// Helper: items destacados
 export const featuredItems = () => MENU.filter(item => item.featured);

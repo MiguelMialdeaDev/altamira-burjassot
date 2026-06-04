@@ -46,10 +46,10 @@ const featured = featuredItems();
               <p class="text-charcoal/70 text-sm mb-4">{item.description}</p>
               <div class="flex flex-wrap gap-2">
                 {item.vegetarian && (
-                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">🌱 Vegetariano</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full font-medium">Vegetariano</span>
                 )}
                 {item.glutenFree && (
-                  <span class="text-xs bg-tropical-maiz/30 text-tropical-tierra px-2 py-1 rounded-full">Sin gluten</span>
+                  <span class="text-xs bg-tropical-maiz/30 text-tropical-tierra px-2 py-1 rounded-full font-medium">Sin gluten</span>
                 )}
               </div>
             </div>
@@ -82,8 +82,8 @@ const featured = featuredItems();
                       <h4 class="font-bold text-charcoal group-hover:text-tropical-mango transition-colors">
                         {item.name}
                       </h4>
-                      {item.vegetarian && <span class="text-xs">🌱</span>}
-                      {item.glutenFree && <span class="text-xs text-tropical-tierra font-bold">SG</span>}
+                      {item.vegetarian && <span class="text-[10px] text-green-700 font-bold uppercase tracking-wider border border-green-700/30 px-1.5 py-0.5 rounded">Veg</span>}
+                      {item.glutenFree && <span class="text-[10px] text-tropical-tierra font-bold uppercase tracking-wider border border-tropical-tierra/30 px-1.5 py-0.5 rounded">SG</span>}
                     </div>
                     <p class="text-charcoal/60 text-sm leading-snug">{item.description}</p>
                   </div>
@@ -109,7 +109,7 @@ const featured = featuredItems();
           rel="noopener"
           class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 shadow-lg"
         >
-          Pedir en Just Eat →
+          Pedir en Just Eat
         </a>
         <a
           href={RESTAURANT.links.ubereats}
@@ -117,7 +117,7 @@ const featured = featuredItems();
           rel="noopener"
           class="inline-flex items-center gap-2 bg-black hover:bg-gray-800 text-white font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 shadow-lg"
         >
-          Pedir en Uber Eats →
+          Pedir en Uber Eats
         </a>
       </div>
     </div>
