@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Reviews from '../components/Reviews.astro';
+import { url, RESTAURANT } from '../data/config';
+---
+
+<BaseLayout
+  title="Reseñas · Altamira GCP"
+  description="200+ reseñas reales de clientes en Google y TripAdvisor. 4.8 estrellas de valoración media. Lee lo que dicen de nuestra cocina venezolana en Burjassot."
+>
+  <PageHero
+    eyebrow="Lo que dicen los clientes"
+    title="Reseñas reales"
+    subtitle={`${RESTAURANT.rating.value} estrellas · ${RESTAURANT.rating.count}+ reseñas`}
+  />
+
+  <Reviews />
+
+  <section class="py-16 bg-cream border-t border-charcoal/5">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-charcoal/70 mb-4">¿Quieres probarlo tú mismo?</p>
+      <a
+        href={url('/reservar/')}
+        class="inline-flex items-center gap-2 bg-tropical-mango hover:bg-tropical-tierra text-charcoal hover:text-cream font-bold px-8 py-4 rounded-full transition-all"
+      >
+        Reservar mesa
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

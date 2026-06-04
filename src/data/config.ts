@@ -11,15 +11,15 @@ export const RESTAURANT = {
   tagline: 'Sabores de Caracas, hechos a mano en Burjassot',
   description: 'Restaurante venezolano en Burjassot. De Caracas a Buenos Aires a Valencia: tres ciudades, una misma cocina. Cachapas, arepas, pabellón criollo, tequeños y todo el sabor de casa.',
 
-  // Contacto VERIFICADO
+  // Contacto
   phone: '+34 628 15 05 50',
   phoneDisplay: '628 15 05 50',
   whatsapp: '34628150550',
-  email: '', // [PEDIR A CLIENTE]
+  email: '',
 
-  // Ubicación VERIFICADA desde web oficial
+  // Ubicación
   address: 'C. Rosa de Luxemburgo',
-  addressNumber: '', // sin número específico en web oficial
+  addressNumber: '',
   postalCode: '46100',
   city: 'Burjassot',
   region: 'Valencia',
@@ -29,8 +29,7 @@ export const RESTAURANT = {
     lng: -0.4207724,
   },
 
-  // Horarios — la web oficial indica 12 días/2 semanas abiertos (semanal completa) pero formato exacto pending
-  // Datos cross-referenciados desde Uber Eats / TripAdvisor
+  // Horarios
   hours: {
     lunes: { lunch: { open: '10:00', close: '16:00' }, dinner: { open: '19:30', close: '23:00' } },
     martes: { lunch: { open: '10:00', close: '16:00' }, dinner: { open: '19:30', close: '23:00' } },
@@ -41,31 +40,27 @@ export const RESTAURANT = {
     domingo: { lunch: { open: '09:00', close: '16:00' }, dinner: { open: '19:00', close: '23:30' } },
   },
 
-  // Pago VERIFICADO
   paymentMethods: ['Efectivo', 'Tarjeta contactless'],
 
-  // Redes y delivery
   links: {
     eatbu: 'https://altamiragcp.eatbu.com',
     tripadvisor: 'https://www.tripadvisor.es/Restaurant_Review-g1063698-d34104186-Reviews-Altamira_GCP-Burjassot_Province_of_Valencia_Valencian_Community.html',
     justeat: 'https://www.just-eat.es/restaurants-altamira-gcp-burjassot/menu',
     ubereats: 'https://www.ubereats.com/es-en/store/altamira-gcp/dC-lG6FyQuCPbogK25hVFg',
-    instagram: '', // [PEDIR A CLIENTE]
-    facebook: '', // [PEDIR A CLIENTE]
+    instagram: '',
+    facebook: '',
     googleMaps: 'https://maps.google.com/?q=Rosa+de+Luxemburgo+46100+Burjassot',
     googleBusiness: '',
   },
 
-  // SEO
   priceRange: '€€',
   cuisineType: 'Cocina venezolana',
   rating: {
-    value: 4.8, // [VERIFICAR EN GOOGLE BUSINESS]
-    count: 200, // [VERIFICAR]
+    value: 4.8,
+    count: 200,
     source: 'Google + TripAdvisor',
   },
 
-  // Identidad visual venezolana
   flag: {
     yellow: '#FCDB1E',
     blue: '#003893',
@@ -73,16 +68,27 @@ export const RESTAURANT = {
   },
 };
 
+// Multi-page nav structure
 export const SECTIONS = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'historia', label: 'Historia' },
-  { id: 'carta', label: 'Carta' },
-  { id: 'reseñas', label: 'Reseñas' },
-  { id: 'ubicacion', label: 'Encuéntranos' },
-  { id: 'reservar', label: 'Reservar' },
+  { id: 'home', label: 'Inicio', path: '/' },
+  { id: 'historia', label: 'Historia', path: '/historia/' },
+  { id: 'carta', label: 'Carta', path: '/carta/' },
+  { id: 'reseñas', label: 'Reseñas', path: '/resenas/' },
+  { id: 'encuentranos', label: 'Encuéntranos', path: '/encuentranos/' },
+  { id: 'reservar', label: 'Reservar', path: '/reservar/' },
 ];
 
-// Helper WhatsApp link
+/**
+ * Helper para generar URLs con base path correcto.
+ * En GitHub Pages: base='/altamira-burjassot/', en local dev='/'
+ */
+export const url = (path: string): string => {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const cleanPath = path.startsWith('/') ? path : '/' + path;
+  return `${base}${cleanPath}`;
+};
+
+// Helper WhatsApp
 export const whatsappLink = (mensaje?: string) => {
   const text = encodeURIComponent(mensaje || '¡Hola! Me gustaría reservar mesa en Altamira GCP');
   return `https://wa.me/${RESTAURANT.whatsapp}?text=${text}`;

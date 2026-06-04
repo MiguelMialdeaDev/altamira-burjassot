@@ -2,8 +2,7 @@
 import { RESTAURANT } from '../data/config';
 ---
 
-<section id="historia" class="py-24 bg-cream relative overflow-hidden">
-  <!-- Decoración sutil tropical -->
+<section class="py-20 bg-cream relative overflow-hidden">
   <div class="absolute top-0 right-0 w-96 h-96 bg-tropical-mango/5 rounded-full blur-3xl"></div>
   <div class="absolute bottom-0 left-0 w-96 h-96 bg-tropical-tierra/5 rounded-full blur-3xl"></div>
 
@@ -11,16 +10,7 @@ import { RESTAURANT } from '../data/config';
     <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
       <!-- Texto -->
       <div class="order-2 lg:order-1">
-        <p class="text-tropical-mango font-medium tracking-widest uppercase text-sm mb-3">Nuestra historia</p>
-        <h2 class="font-display text-4xl md:text-5xl font-black text-charcoal leading-[1.1] mb-3">
-          De Caracas, a Buenos Aires,
-          <span class="text-tropical-tierra">a Burjassot.</span>
-        </h2>
-        <p class="text-charcoal/50 text-sm italic mb-8">
-          Tres ciudades. Una misma cocina.
-        </p>
-
-        <div class="space-y-5 text-charcoal/80 leading-relaxed">
+        <div class="space-y-5 text-charcoal/80 leading-relaxed text-lg">
           <p>
             Nuestros principios comienzan en <strong class="text-charcoal">Argentina, Buenos Aires, año 2019</strong>, después de una migración forzada a temprana edad. Tuvimos que reinventarnos bajo las costumbres y tradiciones de todo venezolano.
           </p>
@@ -38,7 +28,6 @@ import { RESTAURANT } from '../data/config';
           </p>
         </div>
 
-        <!-- Valores/sello -->
         <div class="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-charcoal/10">
           <div>
             <div class="text-2xl mb-1">🇻🇪</div>
@@ -56,26 +45,14 @@ import { RESTAURANT } from '../data/config';
             <p class="text-charcoal/60 text-xs">Siempre</p>
           </div>
         </div>
-
-        <a
-          href="#carta"
-          class="inline-flex items-center gap-2 mt-10 text-tropical-tierra hover:text-tropical-mango font-bold group"
-        >
-          Conoce nuestra carta
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
       </div>
 
-      <!-- Imagen / Visual con ruta migración -->
+      <!-- Imagen visual ruta -->
       <div class="order-1 lg:order-2">
         <div class="relative">
-          <!-- Imagen principal (placeholder con cocina venezolana) -->
           <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-[url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80')] bg-cover bg-center">
           </div>
 
-          <!-- Sello flotante "ruta migración" -->
           <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5 max-w-xs border border-tropical-mango/20">
             <p class="text-xs text-charcoal/50 mb-3 uppercase tracking-widest font-bold">Nuestra ruta</p>
             <div class="space-y-2 text-sm">
@@ -99,7 +76,6 @@ import { RESTAURANT } from '../data/config';
             </div>
           </div>
 
-          <!-- Sello esquina superior -->
           <div class="absolute -top-4 -right-4 bg-tropical-mango text-charcoal rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-2xl font-display font-bold rotate-12 text-center leading-tight">
             <span class="text-2xl">★ {RESTAURANT.rating.value}</span>
             <span class="text-[10px] tracking-wide">{RESTAURANT.rating.count}+ reseñas</span>

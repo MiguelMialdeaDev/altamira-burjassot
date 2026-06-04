@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Historia from '../components/Historia.astro';
+import { url } from '../data/config';
+---
+
+<BaseLayout
+  title="Nuestra historia · Altamira GCP"
+  description="Nuestros principios comienzan en Argentina, Buenos Aires, año 2019, después de una migración forzada. Conoce la historia de Altamira, un restaurante venezolano en Burjassot."
+>
+  <PageHero
+    eyebrow="Nuestra historia"
+    title="De Caracas a Burjassot"
+    subtitle="Tres ciudades. Una misma cocina."
+  />
+
+  <Historia />
+
+  <!-- CTA siguiente página -->
+  <section class="py-16 bg-cream border-t border-charcoal/5">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-charcoal/70 mb-4">¿Te apetece probar lo que cocinamos?</p>
+      <a
+        href={url('/carta/')}
+        class="inline-flex items-center gap-2 bg-tropical-mango hover:bg-tropical-tierra text-charcoal hover:text-cream font-bold px-8 py-4 rounded-full transition-all"
+      >
+        Ver la carta
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
