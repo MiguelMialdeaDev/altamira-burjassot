@@ -7,28 +7,12 @@ const featured = featuredItems();
 
 <section id="carta" class="py-24 bg-cream">
   <div class="container mx-auto px-6">
-    <!-- Header sección -->
-    <div class="text-center mb-16">
-      <p class="text-tropical-mango font-medium tracking-widest uppercase text-sm mb-3">Nuestra carta</p>
-      <h2 class="font-display text-4xl md:text-5xl font-black text-charcoal mb-4">
-        Sabores de Venezuela
-      </h2>
-      <p class="text-charcoal/70 max-w-2xl mx-auto">
-        Recetas tradicionales venezolanas hechas con producto fresco y mucho cariño.
-        Maíz tierno para nuestras cachapas, queso de mano auténtico, pabellón como en casa.
-      </p>
-    </div>
-
     <!-- Destacados -->
     {featured.length > 0 && (
       <div class="mb-20">
-        <div class="flex items-center justify-center gap-3 mb-8">
-          <div class="h-px w-12 bg-tropical-mango/40"></div>
-          <h3 class="font-display text-2xl font-bold text-tropical-tierra">
-            Lo que no te puedes perder
-          </h3>
-          <div class="h-px w-12 bg-tropical-mango/40"></div>
-        </div>
+        <h3 class="font-display text-2xl font-bold text-tropical-tierra mb-8 max-w-5xl mx-auto">
+          Lo más pedido
+        </h3>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {featured.map(item => (
             <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-tropical-mango/10 relative">
