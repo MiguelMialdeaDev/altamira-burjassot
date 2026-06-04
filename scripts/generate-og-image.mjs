@@ -43,7 +43,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
 
   <g transform="translate(870, 90)">
     <text x="260" y="30" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#F4A261" opacity="0.8" text-anchor="end" letter-spacing="2">VALORACIÓN GOOGLE</text>
-    <text x="260" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="900" fill="#F4A261" text-anchor="end">4.8 ★</text>
+    <text x="260" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="900" fill="#F4A261" text-anchor="end">4.9 ★</text>
     <text x="260" y="130" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#FAF6E8" opacity="0.6" text-anchor="end">200+ reseñas reales</text>
   </g>
 
