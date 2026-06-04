@@ -1,0 +1,19 @@
+---
+import { url } from '../data/config';
+const currentPath = Astro.url.pathname;
+// Ocultar el banner en la propia página de propuesta
+const isPropuestaPage = currentPath.endsWith('/propuesta/') || currentPath.endsWith('/propuesta');
+---
+
+{!isPropuestaPage && (
+  <div class="bg-tropical-mango text-charcoal py-2.5 px-4 text-center text-sm font-medium relative z-50">
+    <a href={url('/propuesta/')} class="inline-flex items-center gap-2 hover:underline">
+      <span class="font-bold">Propuesta de web sin coste</span>
+      <span class="hidden sm:inline">para Altamira GCP — pulsa para ver detalles</span>
+      <span class="sm:hidden">— ver detalles</span>
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+)}
