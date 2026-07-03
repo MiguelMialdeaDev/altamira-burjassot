@@ -26,6 +26,7 @@ export const MENU: MenuItem[] = [
     category: 'cachapas',
     featured: true,
     badge: 'La de la casa',
+    image: 'images/cachapa-altamira.jpg',
     allergens: ['lácteos', 'gluten'],
   },
   {
@@ -43,6 +44,7 @@ export const MENU: MenuItem[] = [
     price: 15.60,
     category: 'cachapas',
     featured: true,
+    image: 'images/cachapa-cota-mil.jpg',
     allergens: ['lácteos'],
   },
   {
@@ -61,6 +63,7 @@ export const MENU: MenuItem[] = [
     price: 8.50,
     category: 'arepas',
     featured: true,
+    image: 'images/arepas-trio.jpg',
     allergens: ['huevo', 'lácteos'],
   },
   {
@@ -68,6 +71,7 @@ export const MENU: MenuItem[] = [
     description: 'Carne mechada y queso amarillo fundido. Tradición caraqueña.',
     price: 8.50,
     category: 'arepas',
+    image: 'images/arepa-pelua.jpg',
     allergens: ['lácteos'],
   },
   {
@@ -76,6 +80,7 @@ export const MENU: MenuItem[] = [
     price: 7.50,
     category: 'arepas',
     vegetarian: true,
+    image: 'images/arepa-domino.jpg',
     allergens: ['lácteos'],
   },
   {
@@ -83,6 +88,7 @@ export const MENU: MenuItem[] = [
     description: 'Pollo guisado con queso amarillo. Suave y reconfortante.',
     price: 8.50,
     category: 'arepas',
+    image: 'images/arepa-catira.jpg',
     allergens: ['lácteos'],
   },
 
@@ -113,6 +119,7 @@ export const MENU: MenuItem[] = [
     category: 'tequeños',
     featured: true,
     vegetarian: true,
+    image: 'images/tequenos.jpg',
     allergens: ['gluten', 'lácteos'],
   },
   {
