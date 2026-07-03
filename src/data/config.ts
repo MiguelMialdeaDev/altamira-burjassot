@@ -59,7 +59,7 @@ export const RESTAURANT = {
   priceRange: '€€',
   cuisineType: 'Cocina venezolana',
   rating: {
-    value: 4.9,
+    value: 5,
     count: 200,
     source: 'Google + TripAdvisor',
   },
