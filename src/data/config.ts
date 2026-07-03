@@ -45,7 +45,10 @@ export const RESTAURANT = {
   links: {
     eatbu: 'https://altamiragcp.eatbu.com',
     tripadvisor: 'https://www.tripadvisor.es/Restaurant_Review-g1063698-d34104186-Reviews-Altamira_GCP-Burjassot_Province_of_Valencia_Valencian_Community.html',
-    justeat: 'https://www.just-eat.es/restaurants-altamira-gcp-burjassot/menu',
+    // Enlace oficial de la tienda en Glovo (el que comparte el restaurante).
+    // TODO: si el cliente pasa la URL web del panel Glovo, sustituir aquí.
+    glovo: 'https://glovo.go.link/open?link_type=store&store_id=539172&adjust_t=s321jkn',
+    // Uber Eats: PENDIENTE de confirmar con el cliente si sigue activo (2026-07-03).
     ubereats: 'https://www.ubereats.com/es-en/store/altamira-gcp/dC-lG6FyQuCPbogK25hVFg',
     instagram: '',
     facebook: '',
