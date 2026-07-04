@@ -117,6 +117,29 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
 
+    <!-- Descargar carta en PDF -->
+    <div class="mt-12 text-center">
+      <p class="text-charcoal/60 text-sm mb-4">¿La quieres tal cual la tenemos en el local?</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href={`${base}carta-altamira.pdf`}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 border-2 border-tropical-jungla/30 text-charcoal font-bold px-6 py-3 rounded-full transition-all hover:border-tropical-jungla hover:-translate-y-0.5"
+        >
+          📄 Descargar carta (PDF)
+        </a>
+        <a
+          href={`${base}carta-altamira-en.pdf`}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 border-2 border-tropical-jungla/30 text-charcoal/70 font-medium px-6 py-3 rounded-full transition-all hover:border-tropical-jungla hover:-translate-y-0.5"
+        >
+          English menu (PDF)
+        </a>
+      </div>
+    </div>
+
     <!-- Disclaimer alérgenos -->
     <div class="mt-12 text-center max-w-2xl mx-auto">
       <p class="text-xs text-charcoal/50">
