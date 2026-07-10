@@ -1,0 +1,30 @@
+---
+/**
+ * Bandera de Venezuela correcta: franjas horizontales amarillo/azul/rojo
+ * con el arco de 8 estrellas blancas sobre la franja azul.
+ * Uso: <FlagVE class="h-5 w-auto rounded-full shadow-md" />
+ */
+const { class: className = '' } = Astro.props;
+---
+<svg
+  viewBox="0 0 36 24"
+  xmlns="http://www.w3.org/2000/svg"
+  class={className}
+  role="img"
+  aria-label="Bandera de Venezuela"
+  preserveAspectRatio="xMidYMid slice"
+>
+  <rect width="36" height="8" y="0" fill="#FCDB1E" />
+  <rect width="36" height="8" y="8" fill="#00247D" />
+  <rect width="36" height="8" y="16" fill="#CE1126" />
+  <g fill="#ffffff">
+    <circle cx="10.2" cy="13.4" r="0.85" />
+    <circle cx="12.2" cy="11.9" r="0.85" />
+    <circle cx="14.5" cy="10.9" r="0.85" />
+    <circle cx="16.9" cy="10.4" r="0.85" />
+    <circle cx="19.3" cy="10.4" r="0.85" />
+    <circle cx="21.7" cy="10.9" r="0.85" />
+    <circle cx="24.0" cy="11.9" r="0.85" />
+    <circle cx="26.0" cy="13.4" r="0.85" />
+  </g>
+</svg>
