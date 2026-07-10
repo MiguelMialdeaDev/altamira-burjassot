@@ -17,7 +17,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // OG image absolute URL (necesario para crawlers WhatsApp/Facebook/Twitter)
 const baseURL = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
-const ogImageURL = new URL(`${baseURL}cover.jpg`, Astro.site).toString();
+const ogImageURL = new URL(`${baseURL}og-image.jpg`, Astro.site).toString();
 
 const schema = {
   '@context': 'https://schema.org',

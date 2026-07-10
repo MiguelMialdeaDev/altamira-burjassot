@@ -60,7 +60,7 @@ export const RESTAURANT = {
   cuisineType: 'Cocina venezolana',
   rating: {
     value: 5,
-    count: 200,
+    count: 400,
     source: 'Google + TripAdvisor',
   },
 
