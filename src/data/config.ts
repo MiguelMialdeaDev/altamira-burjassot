@@ -9,10 +9,11 @@ export const RESTAURANT = {
   name: 'Altamira GCP',
   shortName: 'Altamira',
   tagline: 'Sabores de Caracas, hechos a mano en Burjassot',
-  description: 'Restaurante venezolano en Burjassot. De Caracas a Buenos Aires a Valencia: tres ciudades, una misma cocina. Cachapas, arepas, pabellón criollo, tequeños y todo el sabor de casa.',
+  description: 'Restaurante venezolano en Burjassot. De Caracas a Buenos Aires a Valencia: tres ciudades, una misma cocina. Cachapas, arepas, tequeños, empanadas y todo el sabor de casa.',
 
   // Contacto
   phone: '+34 628 15 05 50',
+  phoneE164: '+34628150550',
   phoneDisplay: '628 15 05 50',
   whatsapp: '34628150550',
   email: '',
@@ -46,23 +47,21 @@ export const RESTAURANT = {
     eatbu: 'https://altamiragcp.eatbu.com',
     tripadvisor: 'https://www.tripadvisor.es/Restaurant_Review-g1063698-d34104186-Reviews-Altamira_GCP-Burjassot_Province_of_Valencia_Valencian_Community.html',
     // Enlace oficial de la tienda en Glovo (el que comparte el restaurante).
-    // TODO: si el cliente pasa la URL web del panel Glovo, sustituir aquí.
+    // Es un deep link de app; en escritorio puede no abrir bien.
+    // TODO: pedir URL web de Glovo al cliente y sustituir aquí.
     glovo: 'https://glovo.go.link/open?link_type=store&store_id=539172&adjust_t=s321jkn',
     // Uber Eats: PENDIENTE de confirmar con el cliente si sigue activo (2026-07-03).
     ubereats: 'https://www.ubereats.com/es-en/store/altamira-gcp/dC-lG6FyQuCPbogK25hVFg',
     instagram: '',
     facebook: '',
-    googleMaps: 'https://maps.google.com/?q=Rosa+de+Luxemburgo+46100+Burjassot',
+    googleMaps: 'https://maps.google.com/?q=39.5061747,-0.4207724',
     googleBusiness: '',
   },
 
   priceRange: '€€',
   cuisineType: 'Cocina venezolana',
-  rating: {
-    value: 5,
-    count: 400,
-    source: 'Google + TripAdvisor',
-  },
+  // NOTA: no publicamos rating/nº de reseñas hasta tener las cifras reales
+  // del perfil de Google Business del cliente (honestidad por defecto).
 
   flag: {
     yellow: '#FCDB1E',

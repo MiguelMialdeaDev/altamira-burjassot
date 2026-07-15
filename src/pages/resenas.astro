@@ -1,20 +1,61 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import Reviews from '../components/Reviews.astro';
 import { url, RESTAURANT } from '../data/config';
+
+// TODO: sustituir por reseñas reales copiadas literalmente del perfil
+// de Google Business del cliente. Mientras tanto NO se renderiza el
+// componente <Reviews /> (src/components/Reviews.astro usa placeholders).
 ---
 
 <BaseLayout
   title="Reseñas · Altamira GCP"
-  description="200+ reseñas reales de clientes en Google y TripAdvisor. 4.8 estrellas de valoración media. Lee lo que dicen de nuestra cocina venezolana en Burjassot."
+  description="Lee las opiniones sobre Altamira GCP en Google y TripAdvisor. Cocina venezolana en Burjassot: cachapas, arepas, tequeños y empanadas."
 >
   <PageHero
     eyebrow="Reseñas"
     title="Lo que dicen en Google"
+    subtitle="Preferimos que lo leas de primera mano, en los perfiles públicos."
   />
 
-  <Reviews />
+  <!-- Bloque honesto: enlazamos a los perfiles reales en vez de pintar reseñas propias -->
+  <section class="py-24 bg-gradient-to-br from-tropical-tierra via-charcoal to-tropical-jungla">
+    <div class="container mx-auto px-6 text-center max-w-2xl">
+      <h2 class="font-display text-3xl md:text-4xl font-black text-cream mb-4">
+        Léenos en Google
+      </h2>
+      <p class="text-cream/80 mb-10">
+        Las opiniones de nuestros clientes están publicadas en sus perfiles de siempre.
+        Entra, lee lo que cuentan y, si ya has venido, déjanos la tuya: nos ayuda muchísimo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={RESTAURANT.links.googleMaps}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 bg-tropical-mango hover:bg-tropical-mango/90 text-charcoal font-bold px-8 py-4 rounded-full transition-all"
+        >
+          Ver reseñas en Google
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </a>
+        {RESTAURANT.links.tripadvisor && (
+          <a
+            href={RESTAURANT.links.tripadvisor}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 border border-cream/30 text-cream hover:bg-cream/10 font-medium px-8 py-4 rounded-full transition-all"
+          >
+            Ver reseñas en TripAdvisor
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
 
   <section class="py-16 bg-cream border-t border-charcoal/5">
     <div class="container mx-auto px-6 text-center">
@@ -24,7 +65,7 @@ import { url, RESTAURANT } from '../data/config';
         class="inline-flex items-center gap-2 bg-tropical-mango hover:bg-tropical-tierra text-charcoal hover:text-cream font-bold px-8 py-4 rounded-full transition-all"
       >
         Reservar mesa
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </a>

@@ -19,6 +19,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const baseURL = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 const ogImageURL = new URL(`${baseURL}og-image.jpg`, Astro.site).toString();
 
+// Imagen LCP del hero de la home (preload para mejorar LCP)
+const heroImageURL = `${baseURL}arepas-altamira.jpg`;
+
+// openingHoursSpecification desde los horarios reales de config
+const DAY_MAP: Record<string, string> = {
+  lunes: 'Monday',
+  martes: 'Tuesday',
+  miercoles: 'Wednesday',
+  jueves: 'Thursday',
+  viernes: 'Friday',
+  sabado: 'Saturday',
+  domingo: 'Sunday',
+};
+const openingHoursSpecification = Object.entries(RESTAURANT.hours).flatMap(([dia, turnos]) =>
+  [turnos.lunch, turnos.dinner].map(turno => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: DAY_MAP[dia],
+    opens: turno.open,
+    closes: turno.close,
+  }))
+);
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Restaurant',
@@ -38,14 +60,10 @@ const schema = {
     latitude: RESTAURANT.coordinates.lat,
     longitude: RESTAURANT.coordinates.lng,
   },
-  telephone: RESTAURANT.phone,
+  telephone: RESTAURANT.phoneE164,
   servesCuisine: 'Venezuelan',
   priceRange: RESTAURANT.priceRange,
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: RESTAURANT.rating.value.toString(),
-    reviewCount: RESTAURANT.rating.count.toString(),
-  },
+  openingHoursSpecification,
   url: 'https://altamiragcp.es',
   acceptsReservations: true,
 };
@@ -62,15 +80,11 @@ const schema = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-    <meta name="keywords" content="restaurante venezolano Burjassot, cachapas Valencia, arepas Burjassot, pabellón criollo Valencia, tequeños Burjassot, comida venezolana Valencia" />
-
-    <!-- noindex (no SEO público) pero permite previews sociales -->
-    <meta name="robots" content="noindex, follow" />
-    <meta name="googlebot" content="noindex, follow" />
+    <meta name="keywords" content="restaurante venezolano Burjassot, cachapas Valencia, arepas Burjassot, tequeños Burjassot, empanadas venezolanas Valencia, comida venezolana Valencia" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="restaurant" />
+    <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
@@ -83,6 +97,9 @@ const schema = {
 
     <meta name="theme-color" content="#F4A261" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Preload de la imagen LCP del hero -->
+    <link rel="preload" as="image" href={heroImageURL} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,5 +1,5 @@
 ---
-import { url, RESTAURANT } from '../data/config';
+import { url } from '../data/config';
 ---
 
 <!-- Historia teaser con imagen + caja Nuestra Ruta superpuesta -->
@@ -31,8 +31,13 @@ import { url, RESTAURANT } from '../data/config';
       <!-- Imagen con caja Nuestra Ruta superpuesta -->
       <div class="order-1 lg:order-2">
         <div class="relative">
-          <!-- Imagen ambiente -->
-          <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-[url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80')] bg-cover bg-center">
+          <!-- Foto real del restaurante: la Cachapa Altamira, la de la casa -->
+          <div
+            class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-cover bg-center"
+            style={`background-image: url('${url('/images/cachapa-altamira.jpg')}')`}
+            role="img"
+            aria-label="Cachapa Altamira, el plato de la casa"
+          >
           </div>
 
           <!-- Caja Nuestra Ruta superpuesta -->
@@ -73,10 +78,10 @@ import { url, RESTAURANT } from '../data/config';
     <a href={url('/carta/')} class="group block p-10 md:p-16 border-r-0 md:border-r border-b md:border-b-0 border-charcoal/10 hover:bg-cream transition-colors">
       <p class="text-tropical-mango font-medium tracking-widest uppercase text-xs mb-3">La carta</p>
       <h3 class="font-display text-3xl md:text-4xl font-black text-charcoal mb-4 group-hover:text-tropical-mango transition-colors">
-        Cachapas, arepas y pabellón criollo
+        Cachapas, arepas y tequeños
       </h3>
       <p class="text-charcoal/60 mb-6">
-        Más de 15 platos venezolanos. Tequeños recién hechos, quesillo casero, papelón con limón.
+        Cachapas con queso de mano, arepas, tequeños recién hechos, empanadas criollas y papelón con limón.
       </p>
       <span class="inline-flex items-center gap-1 text-tropical-tierra font-bold text-sm">
         Ver la carta completa
@@ -86,27 +91,17 @@ import { url, RESTAURANT } from '../data/config';
       </span>
     </a>
 
-    <!-- Reseñas -->
+    <!-- Reseñas: sin listado ni cifras hasta tener las reales del perfil de Google -->
     <a href={url('/resenas/')} class="group block p-10 md:p-16 hover:bg-cream transition-colors">
-      <div class="flex items-center gap-2 mb-3">
-        <div class="flex">
-          {Array.from({ length: 5 }).map(() => (
-            <svg class="w-4 h-4 text-tropical-mango" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-          ))}
-        </div>
-        <span class="font-bold text-charcoal">{RESTAURANT.rating.value}</span>
-        <span class="text-charcoal/50 text-sm">· {RESTAURANT.rating.count}+ reseñas</span>
-      </div>
+      <p class="text-tropical-mango font-medium tracking-widest uppercase text-xs mb-3">Reseñas</p>
       <h3 class="font-display text-3xl md:text-4xl font-black text-charcoal mb-4 group-hover:text-tropical-mango transition-colors">
-        Lo que dicen en Google
+        Léenos en Google
       </h3>
       <p class="text-charcoal/60 mb-6">
-        Reseñas reales de quienes ya nos han visitado.
+        No nos creas a nosotros: mira lo que cuentan quienes ya han venido.
       </p>
       <span class="inline-flex items-center gap-1 text-tropical-tierra font-bold text-sm">
-        Ver reseñas
+        Ver dónde leernos
         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>

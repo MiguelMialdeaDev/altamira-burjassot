@@ -33,6 +33,17 @@ const isActive = (path: string) => {
       </ul>
 
       <div class="flex items-center gap-2">
+        <!-- Teléfono visible en desktop -->
+        <a
+          href={`tel:${RESTAURANT.phoneE164}`}
+          class="hidden lg:inline-flex items-center gap-1.5 text-charcoal/80 hover:text-tropical-mango font-medium text-sm px-3 py-2 transition-colors"
+        >
+          <svg class="w-4 h-4 text-tropical-mango" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          {RESTAURANT.phoneDisplay}
+        </a>
+
         <a
           href={url('/reservar/')}
           class="bg-tropical-mango hover:bg-tropical-tierra text-charcoal hover:text-cream font-bold text-sm px-5 py-2 rounded-full transition-all"
@@ -41,8 +52,8 @@ const isActive = (path: string) => {
         </a>
 
         <!-- Mobile menu button -->
-        <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal hover:text-tropical-mango" aria-label="Abrir menú">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal hover:text-tropical-mango" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="18" x2="21" y2="18"/>
@@ -64,6 +75,17 @@ const isActive = (path: string) => {
             </a>
           </li>
         ))}
+        <li class="mt-2 pt-3 border-t border-charcoal/10">
+          <a
+            href={`tel:${RESTAURANT.phoneE164}`}
+            class="flex items-center gap-2 text-sm font-medium px-4 py-3 rounded-lg text-charcoal/80 hover:bg-tropical-mango/10 hover:text-tropical-mango transition-all"
+          >
+            <svg class="w-4 h-4 text-tropical-mango" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            Llámanos · {RESTAURANT.phoneDisplay}
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -73,6 +95,8 @@ const isActive = (path: string) => {
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
   });
 </script>
