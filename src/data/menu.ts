@@ -25,8 +25,28 @@ export interface MenuItem {
   badge?: string;
 }
 
+// Etiquetas legibles de los 14 alérgenos de declaración obligatoria (Rgto. UE 1169/2011).
+// Se muestran los alérgenos que CONTIENE cada plato (nunca se afirma ausencia de gluten,
+// para no dar garantías de "sin gluten" en una cocina que maneja trigo).
+export const ALLERGENS: Record<string, string> = {
+  gluten: 'Gluten',
+  lacteos: 'Lácteos',
+  huevos: 'Huevos',
+  pescado: 'Pescado',
+  cacahuetes: 'Cacahuetes',
+  crustaceos: 'Crustáceos',
+  moluscos: 'Moluscos',
+  frutos_secos: 'Frutos secos',
+  soja: 'Soja',
+  apio: 'Apio',
+  mostaza: 'Mostaza',
+  sulfitos: 'Sulfitos',
+  sesamo: 'Sésamo',
+  altramuces: 'Altramuces',
+};
+
 export const MENU: MenuItem[] = [
-  // ====== CACHAPAS ======
+  // ====== CACHAPAS (masa de maíz) ======
   {
     name: 'Cachapa Altamira',
     description: 'Queso de mano, cochino frito, nata latina y guasacaca.',
@@ -35,6 +55,7 @@ export const MENU: MenuItem[] = [
     featured: true,
     badge: 'La de la casa',
     image: 'images/cachapa-altamira.jpg',
+    allergens: ['lacteos', 'huevos'],
   },
   {
     name: 'Cachapa Cotamil',
@@ -43,6 +64,7 @@ export const MENU: MenuItem[] = [
     category: 'cachapas',
     featured: true,
     image: 'images/cachapa-cota-mil.jpg',
+    allergens: ['lacteos'],
   },
   {
     name: 'Cachapa Bolívar',
@@ -50,18 +72,21 @@ export const MENU: MenuItem[] = [
     price: 11.50,
     category: 'cachapas',
     vegetarian: true,
+    allergens: ['lacteos'],
   },
   {
     name: 'Cachapa Sabas Nieves',
     description: 'Queso de mano y pollo mechado.',
     price: 14.00,
     category: 'cachapas',
+    allergens: ['lacteos'],
   },
   {
     name: 'Cachapa Ávila',
     description: 'Queso de mano y reina pepiada.',
     price: 14.50,
     category: 'cachapas',
+    allergens: ['lacteos', 'huevos'],
   },
   {
     name: 'Cachapa Soltera',
@@ -69,15 +94,17 @@ export const MENU: MenuItem[] = [
     price: 9.00,
     category: 'cachapas',
     vegetarian: true,
+    allergens: [],
   },
 
-  // ====== AREPAS ======
+  // ====== AREPAS (masa de maíz) ======
   {
     name: 'Arepa Altamira',
     description: 'Cochino frito, queso gouda, plátano macho y aguacate.',
     price: 10.00,
     category: 'arepas',
     featured: true,
+    allergens: ['lacteos'],
   },
   {
     name: 'Arepa Reina Pepiada',
@@ -86,6 +113,7 @@ export const MENU: MenuItem[] = [
     category: 'arepas',
     featured: true,
     image: 'images/arepas-trio.jpg',
+    allergens: ['huevos'],
   },
   {
     name: 'Arepa Pelúa',
@@ -93,6 +121,7 @@ export const MENU: MenuItem[] = [
     price: 9.00,
     category: 'arepas',
     image: 'images/arepa-pelua.jpg',
+    allergens: ['lacteos'],
   },
   {
     name: 'Arepa Catira',
@@ -100,6 +129,7 @@ export const MENU: MenuItem[] = [
     price: 9.00,
     category: 'arepas',
     image: 'images/arepa-catira.jpg',
+    allergens: ['lacteos'],
   },
   {
     name: 'Arepa Dominó',
@@ -108,18 +138,21 @@ export const MENU: MenuItem[] = [
     category: 'arepas',
     vegetarian: true,
     image: 'images/arepa-domino.jpg',
+    allergens: ['lacteos'],
   },
   {
     name: 'Arepa de Carne Mechada',
     description: 'Ternera mechada guisada al estilo criollo.',
     price: 8.50,
     category: 'arepas',
+    allergens: [],
   },
   {
     name: 'Arepa de Pollo Mechado',
     description: 'Pollo mechado jugoso.',
     price: 8.50,
     category: 'arepas',
+    allergens: [],
   },
   {
     name: 'Arepa Blanquita',
@@ -127,6 +160,7 @@ export const MENU: MenuItem[] = [
     price: 8.00,
     category: 'arepas',
     vegetarian: true,
+    allergens: ['lacteos'],
   },
   {
     name: 'Arepa Guerrera',
@@ -134,9 +168,10 @@ export const MENU: MenuItem[] = [
     price: 8.00,
     category: 'arepas',
     vegetarian: true,
+    allergens: ['lacteos'],
   },
 
-  // ====== TEQUEÑOS ======
+  // ====== TEQUEÑOS (masa de trigo) ======
   {
     name: 'Tequeños (5 uds · 6 cm)',
     description: 'A elegir: bacon y queso · chorizo pamplonés y queso · guayaba y queso · queso fresco latino · mixto.',
@@ -144,6 +179,7 @@ export const MENU: MenuItem[] = [
     category: 'tequeños',
     featured: true,
     image: 'images/tequenos.jpg',
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Tequeños de Nutella (3 uds · 10 cm)',
@@ -151,9 +187,10 @@ export const MENU: MenuItem[] = [
     price: 7.50,
     category: 'tequeños',
     vegetarian: true,
+    allergens: ['gluten', 'lacteos', 'huevos', 'frutos_secos', 'soja'],
   },
 
-  // ====== EMPANADAS ======
+  // ====== EMPANADAS (masa de maíz, fritas) ======
   {
     name: 'Empanada Pabellón',
     description: 'Ternera mechada, alubias negras, queso fresco latino y plátano macho.',
@@ -162,36 +199,42 @@ export const MENU: MenuItem[] = [
     featured: true,
     badge: 'El plato nacional, en empanada',
     image: 'images/empanadas.jpg',
+    allergens: ['lacteos'],
   },
   {
     name: 'Empanada Pelúa',
     description: 'Carne mechada y queso gouda.',
     price: 6.50,
     category: 'empanadas',
+    allergens: ['lacteos'],
   },
   {
     name: 'Empanada Catira',
     description: 'Pollo mechado y queso gouda.',
     price: 6.50,
     category: 'empanadas',
+    allergens: ['lacteos'],
   },
   {
     name: 'Empanada de Carne Molida',
     description: 'Carne molida guisada.',
     price: 6.00,
     category: 'empanadas',
+    allergens: [],
   },
   {
     name: 'Empanada de Ternera Mechada',
     description: 'Ternera mechada al estilo criollo.',
     price: 6.00,
     category: 'empanadas',
+    allergens: [],
   },
   {
     name: 'Empanada de Pollo Mechado',
     description: 'Pollo mechado jugoso.',
     price: 6.00,
     category: 'empanadas',
+    allergens: [],
   },
   {
     name: 'Empanada Dominó',
@@ -199,12 +242,14 @@ export const MENU: MenuItem[] = [
     price: 6.00,
     category: 'empanadas',
     vegetarian: true,
+    allergens: ['lacteos'],
   },
   {
     name: 'Empanada de Cazón',
     description: 'Caella guisada, sabor a costa venezolana.',
     price: 6.00,
     category: 'empanadas',
+    allergens: ['pescado'],
   },
   {
     name: 'Empanada de Queso',
@@ -212,6 +257,7 @@ export const MENU: MenuItem[] = [
     price: 5.50,
     category: 'empanadas',
     vegetarian: true,
+    allergens: ['lacteos'],
   },
   {
     name: 'Empanada Tajada',
@@ -219,49 +265,50 @@ export const MENU: MenuItem[] = [
     price: 5.50,
     category: 'empanadas',
     vegetarian: true,
+    allergens: ['lacteos'],
   },
 
   // ====== BEBIDAS NATURALES (hechas al momento) ======
-  { name: 'Guanábana', description: 'Batido natural hecho al momento.', price: 4.80, category: 'bebidas_naturales' },
-  { name: 'Tamarindo', description: 'Batido natural hecho al momento.', price: 4.80, category: 'bebidas_naturales' },
-  { name: 'Maracuyá', description: 'Batido natural hecho al momento.', price: 4.80, category: 'bebidas_naturales' },
-  { name: 'Limonada de Maracuyá', description: 'Hecha al momento.', price: 4.50, category: 'bebidas_naturales' },
-  { name: 'Tomate de árbol', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales' },
-  { name: 'Mora', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales' },
-  { name: 'Fresa', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales' },
-  { name: 'Guayaba', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales' },
-  { name: 'Mango', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales' },
-  { name: 'Piña', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales' },
-  { name: 'Papelón con limón', description: 'El refresco tradicional venezolano.', price: 4.20, category: 'bebidas_naturales' },
-  { name: 'Limonada de Fresa', description: 'Hecha al momento.', price: 4.20, category: 'bebidas_naturales' },
+  { name: 'Guanábana', description: 'Batido natural hecho al momento.', price: 4.80, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Tamarindo', description: 'Batido natural hecho al momento.', price: 4.80, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Maracuyá', description: 'Batido natural hecho al momento.', price: 4.80, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Limonada de Maracuyá', description: 'Hecha al momento.', price: 4.50, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Tomate de árbol', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Mora', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Fresa', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Guayaba', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Mango', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Piña', description: 'Batido natural hecho al momento.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Papelón con limón', description: 'El refresco tradicional venezolano.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
+  { name: 'Limonada de Fresa', description: 'Hecha al momento.', price: 4.20, category: 'bebidas_naturales', allergens: [] },
 
   // ====== BEBIDAS SIN ALCOHOL ======
-  { name: 'Frescolita', description: 'El refresco venezolano de siempre.', price: 3.00, category: 'bebidas' },
-  { name: 'Frescolita de Uva', description: '', price: 3.00, category: 'bebidas' },
-  { name: 'Malta Polar', description: '', price: 3.00, category: 'bebidas' },
-  { name: 'Nestea Maracuyá', description: '', price: 2.50, category: 'bebidas' },
-  { name: 'Agua con gas', description: '', price: 2.20, category: 'bebidas' },
-  { name: 'Coca-Cola', description: '', price: 2.00, category: 'bebidas' },
-  { name: 'Coca-Cola Zero', description: '', price: 2.00, category: 'bebidas' },
-  { name: 'Fanta Naranja', description: '', price: 2.00, category: 'bebidas' },
-  { name: 'Fanta Limón', description: '', price: 2.00, category: 'bebidas' },
-  { name: 'Aquarius Limón', description: '', price: 2.00, category: 'bebidas' },
-  { name: 'Aquarius Naranja', description: '', price: 2.00, category: 'bebidas' },
-  { name: 'Nestea Limón', description: '', price: 2.00, category: 'bebidas' },
-  { name: 'Agua', description: '', price: 1.50, category: 'bebidas' },
+  { name: 'Frescolita', description: 'El refresco venezolano de siempre.', price: 3.00, category: 'bebidas', allergens: [] },
+  { name: 'Frescolita de Uva', description: '', price: 3.00, category: 'bebidas', allergens: [] },
+  { name: 'Malta Polar', description: 'Malta de cebada, sin alcohol.', price: 3.00, category: 'bebidas', allergens: ['gluten'] },
+  { name: 'Nestea Maracuyá', description: '', price: 2.50, category: 'bebidas', allergens: [] },
+  { name: 'Agua con gas', description: '', price: 2.20, category: 'bebidas', allergens: [] },
+  { name: 'Coca-Cola', description: '', price: 2.00, category: 'bebidas', allergens: [] },
+  { name: 'Coca-Cola Zero', description: '', price: 2.00, category: 'bebidas', allergens: [] },
+  { name: 'Fanta Naranja', description: '', price: 2.00, category: 'bebidas', allergens: [] },
+  { name: 'Fanta Limón', description: '', price: 2.00, category: 'bebidas', allergens: [] },
+  { name: 'Aquarius Limón', description: '', price: 2.00, category: 'bebidas', allergens: [] },
+  { name: 'Aquarius Naranja', description: '', price: 2.00, category: 'bebidas', allergens: [] },
+  { name: 'Nestea Limón', description: '', price: 2.00, category: 'bebidas', allergens: [] },
+  { name: 'Agua', description: '', price: 1.50, category: 'bebidas', allergens: [] },
 
   // ====== CERVEZAS, VINO Y VERMUT ======
-  { name: 'Smirnoff', description: '', price: 3.90, category: 'cervezas' },
-  { name: 'Alhambra', description: '', price: 3.10, category: 'cervezas' },
-  { name: 'Polar Premium', description: 'La cerveza de Venezuela.', price: 3.10, category: 'cervezas' },
-  { name: 'Polar Pilsen', description: 'La cerveza de Venezuela.', price: 2.80, category: 'cervezas' },
-  { name: 'Águila sin filtrar', description: '', price: 2.80, category: 'cervezas' },
-  { name: 'Tinto de verano', description: '', price: 2.80, category: 'cervezas' },
-  { name: 'Estrella Galicia', description: '', price: 2.50, category: 'cervezas' },
-  { name: 'Radler', description: '', price: 2.50, category: 'cervezas' },
-  { name: 'Estrella Galicia 0,0', description: '', price: 2.40, category: 'cervezas' },
-  { name: 'Copa de vino', description: '', price: 4.20, category: 'cervezas' },
-  { name: 'Vermut', description: '', price: 4.30, category: 'cervezas' },
+  { name: 'Smirnoff', description: '', price: 3.90, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Alhambra', description: '', price: 3.10, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Polar Premium', description: 'La cerveza de Venezuela.', price: 3.10, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Polar Pilsen', description: 'La cerveza de Venezuela.', price: 2.80, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Águila sin filtrar', description: '', price: 2.80, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Tinto de verano', description: '', price: 2.80, category: 'cervezas', allergens: ['sulfitos'] },
+  { name: 'Estrella Galicia', description: '', price: 2.50, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Radler', description: '', price: 2.50, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Estrella Galicia 0,0', description: '', price: 2.40, category: 'cervezas', allergens: ['gluten'] },
+  { name: 'Copa de vino', description: '', price: 4.20, category: 'cervezas', allergens: ['sulfitos'] },
+  { name: 'Vermut', description: '', price: 4.30, category: 'cervezas', allergens: ['sulfitos'] },
 ];
 
 export const CATEGORIES = [

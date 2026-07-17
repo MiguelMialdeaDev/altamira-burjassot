@@ -1,5 +1,5 @@
 ---
-import { CATEGORIES, itemsByCategory, featuredItems } from '../data/menu';
+import { CATEGORIES, itemsByCategory, featuredItems, ALLERGENS } from '../data/menu';
 import { RESTAURANT } from '../data/config';
 
 const featured = featuredItems();
@@ -33,9 +33,9 @@ const base = import.meta.env.BASE_URL;
                 {item.vegetarian && (
                   <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full font-medium">Vegetariano</span>
                 )}
-                {item.glutenFree && (
-                  <span class="text-xs bg-tropical-maiz/30 text-tropical-tierra px-2 py-1 rounded-full font-medium">Sin gluten</span>
-                )}
+                {(item.allergens ?? []).map(a => (
+                  <span class="text-xs bg-tropical-tierra/10 text-tropical-tierra px-2 py-1 rounded-full font-medium">{ALLERGENS[a] ?? a}</span>
+                ))}
               </div>
             </div>
           ))}
@@ -68,9 +68,15 @@ const base = import.meta.env.BASE_URL;
                         {item.name}
                       </h4>
                       {item.vegetarian && <span class="text-[10px] text-green-700 font-bold uppercase tracking-wider border border-green-700/30 px-1.5 py-0.5 rounded">Veg</span>}
-                      {item.glutenFree && <span class="text-[10px] text-tropical-tierra font-bold uppercase tracking-wider border border-tropical-tierra/30 px-1.5 py-0.5 rounded">SG</span>}
                     </div>
-                    <p class="text-charcoal/60 text-sm leading-snug">{item.description}</p>
+                    {item.description && <p class="text-charcoal/60 text-sm leading-snug">{item.description}</p>}
+                    {(item.allergens ?? []).length > 0 && (
+                      <div class="flex flex-wrap gap-1.5 mt-1.5">
+                        {(item.allergens ?? []).map(a => (
+                          <span class="text-[10px] text-tropical-tierra/80 bg-tropical-tierra/8 border border-tropical-tierra/15 px-1.5 py-0.5 rounded">{ALLERGENS[a] ?? a}</span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <div class="font-display font-bold text-tropical-mango text-lg whitespace-nowrap">
                     {item.price.toFixed(2)}€
@@ -130,11 +136,19 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
 
-    <!-- Disclaimer alérgenos -->
-    <div class="mt-12 text-center max-w-2xl mx-auto">
-      <p class="text-xs text-charcoal/50">
-        Información sobre alérgenos disponible bajo solicitud.
-        Si tienes alergias o intolerancias, avísanos al hacer la reserva.
+    <!-- Leyenda + disclaimer alérgenos -->
+    <div class="mt-16 max-w-3xl mx-auto border-t border-tropical-mango/20 pt-8">
+      <p class="text-tropical-tierra font-bold text-sm uppercase tracking-widest mb-4 text-center">Alérgenos</p>
+      <div class="flex flex-wrap gap-2 justify-center mb-5">
+        {Object.values(ALLERGENS).map(label => (
+          <span class="text-[11px] text-charcoal/60 bg-tropical-tierra/8 border border-tropical-tierra/15 px-2 py-1 rounded-full">{label}</span>
+        ))}
+      </div>
+      <p class="text-xs text-charcoal/50 text-center leading-relaxed">
+        Los alérgenos indicados en cada plato son orientativos y se basan en sus ingredientes principales.
+        Nuestros platos se elaboran en una cocina donde también se manipulan gluten, lácteos, huevo y frutos secos,
+        por lo que puede haber trazas. Si tienes alguna alergia o intolerancia, <strong>avísanos antes de pedir</strong> y
+        te ayudamos a elegir con el máximo cuidado.
       </p>
     </div>
   </div>
