@@ -9,7 +9,13 @@ const año = new Date().getFullYear();
     <div class="grid md:grid-cols-4 gap-8 mb-10">
       <!-- Brand -->
       <div class="md:col-span-1">
-        <h3 class="font-display text-2xl font-black mb-2">{RESTAURANT.name}</h3>
+        <img
+          src={`${url('/logo-altamira-blanco.png')}`}
+          alt={`${RESTAURANT.name} · ${RESTAURANT.tagline}`}
+          class="h-28 w-auto mb-4"
+          width="220"
+          height="220"
+        />
         <p class="text-cream/70 text-sm mb-4">{RESTAURANT.tagline}</p>
         <FlagVE class="h-6 w-9 rounded-md overflow-hidden shadow-md" />
       </div>
