@@ -55,7 +55,7 @@ export const MENU: MenuItem[] = [
     featured: true,
     badge: 'La de la casa',
     image: 'images/cachapa-altamira.jpg',
-    allergens: ['lacteos', 'huevos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Cachapa Cotamil',
@@ -64,7 +64,7 @@ export const MENU: MenuItem[] = [
     category: 'cachapas',
     featured: true,
     image: 'images/cachapa-cota-mil.jpg',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Cachapa Bolívar',
@@ -72,21 +72,21 @@ export const MENU: MenuItem[] = [
     price: 11.50,
     category: 'cachapas',
     vegetarian: true,
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Cachapa Sabas Nieves',
     description: 'Queso de mano y pollo mechado.',
     price: 14.00,
     category: 'cachapas',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Cachapa Ávila',
     description: 'Queso de mano y reina pepiada.',
     price: 14.50,
     category: 'cachapas',
-    allergens: ['lacteos', 'huevos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Cachapa Soltera',
@@ -94,7 +94,7 @@ export const MENU: MenuItem[] = [
     price: 9.00,
     category: 'cachapas',
     vegetarian: true,
-    allergens: [],
+    allergens: ['gluten', 'huevos'],
   },
 
   // ====== AREPAS (masa de maíz) ======
@@ -104,7 +104,7 @@ export const MENU: MenuItem[] = [
     price: 10.00,
     category: 'arepas',
     featured: true,
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Arepa Reina Pepiada',
@@ -113,7 +113,7 @@ export const MENU: MenuItem[] = [
     category: 'arepas',
     featured: true,
     image: 'images/arepas-trio.jpg',
-    allergens: ['huevos'],
+    allergens: ['gluten', 'huevos'],
   },
   {
     name: 'Arepa Pelúa',
@@ -121,7 +121,7 @@ export const MENU: MenuItem[] = [
     price: 9.00,
     category: 'arepas',
     image: 'images/arepa-pelua.jpg',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Arepa Catira',
@@ -129,7 +129,7 @@ export const MENU: MenuItem[] = [
     price: 9.00,
     category: 'arepas',
     image: 'images/arepa-catira.jpg',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Arepa Dominó',
@@ -138,21 +138,21 @@ export const MENU: MenuItem[] = [
     category: 'arepas',
     vegetarian: true,
     image: 'images/arepa-domino.jpg',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Arepa de Carne Mechada',
     description: 'Ternera mechada guisada al estilo criollo.',
     price: 8.50,
     category: 'arepas',
-    allergens: [],
+    allergens: ['gluten', 'huevos'],
   },
   {
     name: 'Arepa de Pollo Mechado',
     description: 'Pollo mechado jugoso.',
     price: 8.50,
     category: 'arepas',
-    allergens: [],
+    allergens: ['gluten', 'huevos'],
   },
   {
     name: 'Arepa Blanquita',
@@ -160,7 +160,7 @@ export const MENU: MenuItem[] = [
     price: 8.00,
     category: 'arepas',
     vegetarian: true,
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Arepa Guerrera',
@@ -168,7 +168,7 @@ export const MENU: MenuItem[] = [
     price: 8.00,
     category: 'arepas',
     vegetarian: true,
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
 
   // ====== TEQUEÑOS (masa de trigo) ======
@@ -199,42 +199,42 @@ export const MENU: MenuItem[] = [
     featured: true,
     badge: 'El plato nacional, en empanada',
     image: 'images/empanadas.jpg',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Empanada Pelúa',
     description: 'Carne mechada y queso gouda.',
     price: 6.50,
     category: 'empanadas',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Empanada Catira',
     description: 'Pollo mechado y queso gouda.',
     price: 6.50,
     category: 'empanadas',
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Empanada de Carne Molida',
     description: 'Carne molida guisada.',
     price: 6.00,
     category: 'empanadas',
-    allergens: [],
+    allergens: ['gluten', 'huevos'],
   },
   {
     name: 'Empanada de Ternera Mechada',
     description: 'Ternera mechada al estilo criollo.',
     price: 6.00,
     category: 'empanadas',
-    allergens: [],
+    allergens: ['gluten', 'huevos'],
   },
   {
     name: 'Empanada de Pollo Mechado',
     description: 'Pollo mechado jugoso.',
     price: 6.00,
     category: 'empanadas',
-    allergens: [],
+    allergens: ['gluten', 'huevos'],
   },
   {
     name: 'Empanada Dominó',
@@ -242,14 +242,14 @@ export const MENU: MenuItem[] = [
     price: 6.00,
     category: 'empanadas',
     vegetarian: true,
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Empanada de Cazón',
     description: 'Caella guisada, sabor a costa venezolana.',
     price: 6.00,
     category: 'empanadas',
-    allergens: ['pescado'],
+    allergens: ['gluten', 'huevos', 'pescado'],
   },
   {
     name: 'Empanada de Queso',
@@ -257,7 +257,7 @@ export const MENU: MenuItem[] = [
     price: 5.50,
     category: 'empanadas',
     vegetarian: true,
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
   {
     name: 'Empanada Tajada',
@@ -265,7 +265,7 @@ export const MENU: MenuItem[] = [
     price: 5.50,
     category: 'empanadas',
     vegetarian: true,
-    allergens: ['lacteos'],
+    allergens: ['gluten', 'lacteos', 'huevos'],
   },
 
   // ====== BEBIDAS NATURALES (hechas al momento) ======
