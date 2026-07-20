@@ -311,14 +311,17 @@ export const MENU: MenuItem[] = [
   { name: 'Vermut', description: '', price: 4.30, category: 'cervezas', allergens: ['sulfitos'] },
 ];
 
+// `allergens` a nivel de categoría: se muestran junto al título de la sección
+// (como la carta oficial), no repetidos en cada plato. Cada plato solo enseña
+// sus alérgenos ESPECÍFICOS extra (p. ej. lácteos del queso, pescado del cazón).
 export const CATEGORIES = [
-  { id: 'cachapas', label: 'Cachapas', priority: 1, description: 'Pancakes de maíz tierno con sus rellenos' },
-  { id: 'arepas', label: 'Arepas', priority: 2, description: 'La estrella de la cocina venezolana' },
-  { id: 'tequeños', label: 'Tequeños', priority: 3, description: 'El aperitivo de las fiestas' },
-  { id: 'empanadas', label: 'Empanadas', priority: 4, description: 'Crujientes, de maíz, al estilo venezolano' },
-  { id: 'bebidas_naturales', label: 'Bebidas naturales', priority: 5, description: 'Batidos y jugos hechos al momento con sabor venezolano' },
-  { id: 'bebidas', label: 'Refrescos', priority: 6, description: 'Clásicos venezolanos y de aquí' },
-  { id: 'cervezas', label: 'Cervezas, vino y vermut', priority: 7 },
+  { id: 'cachapas', label: 'Cachapas', priority: 1, description: 'Pancakes de maíz tierno con sus rellenos', allergens: ['gluten', 'huevos'] },
+  { id: 'arepas', label: 'Arepas', priority: 2, description: 'La estrella de la cocina venezolana', allergens: ['gluten', 'huevos'] },
+  { id: 'tequeños', label: 'Tequeños', priority: 3, description: 'El aperitivo de las fiestas', allergens: ['gluten', 'lacteos', 'huevos'] },
+  { id: 'empanadas', label: 'Empanadas', priority: 4, description: 'Crujientes, de maíz, al estilo venezolano', allergens: ['gluten', 'huevos'] },
+  { id: 'bebidas_naturales', label: 'Bebidas naturales', priority: 5, description: 'Batidos y jugos hechos al momento con sabor venezolano', allergens: [] },
+  { id: 'bebidas', label: 'Refrescos', priority: 6, description: 'Clásicos venezolanos y de aquí', allergens: [] },
+  { id: 'cervezas', label: 'Cervezas, vino y vermut', priority: 7, allergens: [] },
 ];
 
 export const itemsByCategory = (cat: string) => MENU.filter(item => item.category === cat);
